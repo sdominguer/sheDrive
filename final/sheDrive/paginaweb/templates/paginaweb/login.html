@@ -1,0 +1,17 @@
+{% extends "paginaweb/base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="contenedorFormulario">
+
+    <form action="" method="POST" style="text-align: center;">
+      {% csrf_token %}
+      <br><h2>Inicio de sesión</h2>
+      <table style="color: black; margin: 20px auto;">{{formLogin.as_table}}</table>
+      <br><input type="submit" value="Iniciar sesión"><br>
+    </form>
+
+  </div>
+  {{request.POST}}
+  {% endblock %}

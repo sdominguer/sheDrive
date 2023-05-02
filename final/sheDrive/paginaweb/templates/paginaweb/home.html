@@ -1,0 +1,72 @@
+{% extends "paginaweb/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+   <!-- Heading -->
+   <div>
+    <div class="row row-cols-2 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card" style="min-width: 25rem; min-height: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Nuevo viaje</h5>
+            <form>
+              <label for="fname">Desde:</label><br>
+              <input type="text"><br>
+              <label for="lname">Hasta:</label><br>
+              <input type="text"><br>
+              <br><input type="submit" value="Pedir">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="min-width: 25rem; min-height: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Conduce con nosotras</h5>
+            <br>
+            <br>
+            <br>
+            <form>
+              <label for="fname">Correo:</label><br>
+              <input type="email"><br>
+              <br><label for="fname">Teléfono:</label><br>
+              <input type="text"><br>
+              <br><input type="checkbox">
+              <label for="vehicle3">Autorizo el uso de datos personales</label><br>
+              <br><input type="submit" value="Enviar"><br>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col">
+        <div class="card" style="min-width: 25rem; min-height: 30rem;" >
+          <div class="card-body">
+            <h5 class="card-title">Programar viaje</h5>
+            <p class="card-text">Programa tu viaje para después</p>
+            <form>
+              <label for="fname">Desde:</label><br>
+              <input type="text"><br>
+              <br>
+              <label for="lname">Hasta:</label><br>
+              <input type="text"><br>
+              <br>
+              <label for="lname">Fecha y hora:</label><br>
+              <input type="datetime-local"><br>
+              <br><input type="submit" value="Submit">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+<br>
+
+{% endblock %}

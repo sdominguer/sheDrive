@@ -1,0 +1,16 @@
+{% extends "paginaweb/base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="contenedorFormulario">
+
+    <form action="" method="POST" style="text-align: center;">
+      <br><h2>Creación de cuenta</h2>
+      <table style="color: black; margin: 20px auto;">{{formSignup.as_table}}</table>
+      <br><input type="submit" value="Crear cuenta"><br>
+    </form>
+
+  </div>
+
+  {% endblock %}
