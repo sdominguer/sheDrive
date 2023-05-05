@@ -1,0 +1,100 @@
+{% extends "paginaweb/base.html" %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mapbox Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 500px;
+        width: 80%;
+        margin: 0 auto;
+      }
+      #form-container {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px auto;
+        width: 80%;
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      input[type="text"] {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 16px;
+        padding: 5px;
+        width: 100%;
+      }
+
+      button {
+        background-color: rgb(255, 200, 200);
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 25px;
+      }
+
+      button:hover {
+        background-color: rgb(255, 200, 200);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="form-container">
+      <form id="map-form">
+        <label for="origin-input">Origen:</label>
+        <input type="text" id="origin-input" name="origin" required><br>
+        <br><label for="destination-input">Destino:</label>
+        <input type="text" id="destination-input" name="destination" required><br>
+        <br><button type="submit">Buscar ruta</button>
+      </form>
+    </div>
+    <div id="map"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWRybCIsImEiOiJjbGg4a3M0d3AwOWppM2VtaGJyNmF6bGN1In0.mqxx5BquCc8oeOqglch5hQ';
+
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-75.5636, 6.2518],
+        zoom: 12
+      });
+
+      var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/driving-traffic',
+        alternatives: false,
+        congestion: true,
+        interactive: false
+      });
+
+      document.getElementById('map-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var origin = document.getElementById('origin-input').value;
+        var destination = document.getElementById('destination-input').value;
+        directions.setOrigin(origin);
+        directions.setDestination(destination);
+        map.addControl(directions, 'top-left');
+      });
+    </script>
+  </body>
+</html>
+
+{% endblock %}

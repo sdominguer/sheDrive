@@ -3,14 +3,39 @@
 {% load static %}
 
 {% block content %}
+<style>
+  .button {
+    background-color: rgb(255, 200, 200);
+    border: none;
+    border-radius: 1px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 7px;}
+
+  .site-heading-lower {
+    text-shadow: 2px 2px 4px rgba(121, 117, 118, 0.5);
+}
+</style>
+
   <div class="contenedorFormulario">
 
-    <form action="" method="POST" style="text-align: center;">
+    {% if "valido" in request.GET %}
+       <p>informacion enviada</p>
+
+    {% endif %}
+
+    <form method="POST" action="" style="text-align: center;">
+      {% csrf_token %} 
       <br><h2>Creación de cuenta</h2>
       <table style="color: black; margin: 20px auto;">{{formSignup.as_table}}</table>
-      <br><input type="submit" value="Crear cuenta"><br>
+      <button class="button"><strong>Crear cuenta</strong></button>
     </form>
 
   </div>
+
+
+  <br>
 
   {% endblock %}

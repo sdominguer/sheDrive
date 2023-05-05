@@ -6,6 +6,50 @@ body {
   background-size: cover;
 }
 
+.button {
+  background-color: rgb(255, 180, 180);
+  border: none;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 7px;
+
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0 10px;
+}
+
+
+.boton-nav {
+  background-color: #ffffff; 
+  border: none; 
+  color: rgb(255, 156, 156); 
+  padding: 12px 30px; 
+  text-align: center;
+}
+
+.nav ul {
+  text-align: center;
+}
+
+
 h1,
 h2,
 h3,
@@ -292,4 +336,6 @@ ul.errorlist{
   margin:20px auto;
   border-radius: 5px;
   padding: 1px 0px;
+  text-align: center;
 }
+

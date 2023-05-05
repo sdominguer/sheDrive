@@ -1,6 +1,39 @@
 <html>
 
 <head>
+  <style>
+      .button {
+        background-color: rgb(255, 200, 200);
+        border: none;
+        border-radius: 1px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 7px;}
+
+      .site-heading-lower {
+        text-shadow: 2px 2px 4px rgba(121, 117, 118, 0.5);
+  }
+  
+  .person-button {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url(img/persona.png);
+  background-size: cover;
+  filter: invert(100%);
+  margin: 0 auto;
+}
+
+
+.person-icon {
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+}
+
+  </style>
 
     {% load static %}
 
@@ -25,26 +58,40 @@
         <span class="site-heading-lower">SheDrive</span>
       </h1>
 
-
  <!-- Navbar --> <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'Home' %}">Gestión de Pedidos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'Signup' %}">Sign Up</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'Login' %}">Login</a>
-            </li>          
-          </ul>
-        </div>
+      <a href="perfil.html" class="person-button">
+        <img src='static/paginaweb/img/usuario.png' class="person-icon">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Signup' %}">Sign Up</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Login' %}">Login</a>
+          </li>
+          <li><button onclick="mostrarAlerta()" class="button"><strong>PANIC BUTTON</strong></button></li>          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<br>
+    
+<script>
+  function mostrarAlerta() {
+    alert("Tú ubicación ha sido enviada a tu contacto de seguridad.");
+  }
+  </script>
+
+
       </div>
     </nav>
 
@@ -54,7 +101,6 @@
   {% block content %}
 
   {% endblock %}
-
 
 
     <!-- Footer -->

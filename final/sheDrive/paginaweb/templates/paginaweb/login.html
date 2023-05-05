@@ -3,15 +3,33 @@
 {% load static %}
 
 {% block content %}
-  <div class="contenedorFormulario">
+<style>
+  .button {
+    background-color: rgb(255, 200, 200);
+    border: none;
+    border-radius: 1px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 7px;}
 
+  .site-heading-lower {
+    text-shadow: 2px 2px 4px rgba(121, 117, 118, 0.5);
+}
+
+
+</style>
+
+
+  <div class="contenedorFormulario">
     <form action="" method="POST" style="text-align: center;">
       {% csrf_token %}
       <br><h2>Inicio de sesión</h2>
       <table style="color: black; margin: 20px auto;">{{formLogin.as_table}}</table>
-      <br><input type="submit" value="Iniciar sesión"><br>
+      <button class="button"><strong>Iniciar sesión</strong></button>
     </form>
 
   </div>
-  {{request.POST}}
+
   {% endblock %}

@@ -1,42 +1,78 @@
 {% extends "paginaweb/base.html" %}
 
-{% load static %}
 
 {% block content %}
+<style>
 
+
+input {
+  display: block;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  outline: none;
+  border-color: rgb(255, 200, 200);
+  box-shadow: 0px 0px 5px rgb(255, 200, 200);
+}
+
+input:focus + label {
+  color: rgb(255, 200, 200);
+}
+label {
+    font-family: "Segoe UI";
+  }
+
+  button {
+        background-color: rgb(255, 180, 180);
+        border: none;
+        border-radius: 3px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 7px;
+
+      }
+
+
+
+</style>
    <!-- Heading -->
    <div>
     <div class="row row-cols-2 row-cols-md-3 g-4">
       <div class="col">
-        <div class="card" style="min-width: 25rem; min-height: 30rem;">
+        <div class="card" style="min-width: 25rem; min-height: 26rem;">
           <div class="card-body">
-            <h5 class="card-title">Nuevo viaje</h5>
-            <form>
-              <label for="fname">Desde:</label><br>
+            <label style="font-size: 20px;">Empieza un nuevo viaje ahora</label>
+            <br>
+            <br>
+            <form action="/viaje">
+              <label for="fname">Ingresa un punto de partida:</label><br>
               <input type="text"><br>
-              <label for="lname">Hasta:</label><br>
+              <label for="lname">Ingresa un destino:</label><br>
               <input type="text"><br>
-              <br><input type="submit" value="Pedir">
+              <br><br><button type="submit">Pedir</button>
             </form>
           </div>
         </div>
       </div>
 
       <div class="col">
-        <div class="card" style="min-width: 25rem; min-height: 30rem;">
+        <div class="card" style="min-width: 25rem; min-height: 26rem;">
           <div class="card-body">
-            <h5 class="card-title">Conduce con nosotras</h5>
-            <br>
-            <br>
-            <br>
+            <label style="font-size: 20px;"> Conduce con nosotras</label><br>
             <form>
               <label for="fname">Correo:</label><br>
               <input type="email"><br>
-              <br><label for="fname">Teléfono:</label><br>
-              <input type="text"><br>
+              <label for="fname">Teléfono:</label>
+              <input type="text">
               <br><input type="checkbox">
               <label for="vehicle3">Autorizo el uso de datos personales</label><br>
-              <br><input type="submit" value="Enviar"><br>
+              <br><button type="submit">Enviar</button>
             </form>
           </div>
         </div>
@@ -44,27 +80,46 @@
 
       
       <div class="col">
-        <div class="card" style="min-width: 25rem; min-height: 30rem;" >
+        <div class="card" style="min-width: 25rem; min-height: 26rem;" >
           <div class="card-body">
-            <h5 class="card-title">Programar viaje</h5>
-            <p class="card-text">Programa tu viaje para después</p>
+            <label style="font-size: 20px;">Programar tu viaje</label>
             <form>
               <label for="fname">Desde:</label><br>
               <input type="text"><br>
-              <br>
               <label for="lname">Hasta:</label><br>
               <input type="text"><br>
-              <br>
               <label for="lname">Fecha y hora:</label><br>
-              <input type="datetime-local"><br>
-              <br><input type="submit" value="Submit">
+              <input type="datetime-local">
+              <br>
+              <button type="submit">Agendar</button>
             </form>
           </div>
+        </div>
+      
+      </div> <br>
 
+      <div style="width: 98%; margin: 50px auto 0; padding: 10px; overflow: visible; background-color: white; border-radius: 10px; position: relative; display: flex; align-items: center;">
+        <img src="static/paginaweb/img/carro.jpg" style="border-radius: 7px; width: 400px; height: 300px; margin-left: 25px;">
+        <div style="margin-left: 40px;">
+          <h3><strong>¿Quiénes somos?</strong></h3>
+          <p>SheDrive surge como un proyecto que busca abarcar la problemática de la inseguridad en las plataformas de transporte hacia las mujeres, dándoles un entorno mas confiable y seguro en sus viajes, y a su vez pretende ayudar a las mismas con empleos flexibles para quienes lo necesiten.</p>
         </div>
       </div>
+      
+      
+      
+
+      
+      
+  
+    
+
     </div>
   </div>
+
+  
+
+
 
 <br>
 <br>

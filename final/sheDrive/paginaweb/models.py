@@ -3,8 +3,12 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-class Usuario(AbstractUser):
+class Usuario(models.Model):
     telefono=models.CharField(max_length=10)
+    nombre=models.CharField(max_length=30)
+    identificacion=models.CharField(max_length=20)
+    contraseña=models.CharField(max_length=30)
+    email=models.EmailField(max_length=50)
 
 class Conductora(models.Model):
     nombre=models.CharField(max_length=30)

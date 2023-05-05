@@ -1,0 +1,45 @@
+{% extends "paginaweb/base.html" %}
+
+{% load static %}
+
+<style>
+    .button {
+      background-color: rgb(255, 200, 200);
+      border: none;
+      border-radius: 1px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 7px;}
+  
+    .site-heading-lower {
+      text-shadow: 2px 2px 4px rgba(121, 117, 118, 0.5);
+  }
+</style>
+
+
+{% block content %}
+
+<div class="contenedorFormulario" style="text-align: center; font-family: Arial, sans-serif;">
+    <h2 style="margin-top: 30px;"><strong>Información tarjeta</strong></h2>
+    <br>
+    <form style="text-align: justify; text-align-last: justify; margin: 0 20% 20px 20%; display: flex; flex-direction: column; align-items: center;">
+      <label for="numero-tarjeta">Número de tarjeta:</label>
+      <input type="text" id="numero-tarjeta" name="numero-tarjeta" required><br><br>
+  
+      <label for="fecha-vencimiento">Fecha de vencimiento:</label>
+      <input type="text" id="fecha-vencimiento" name="fecha-vencimiento" required><br><br>
+  
+      <label for="clave">Clave:</label>
+      <input type="password" id="clave" name="clave" required><br><br>
+  
+      <button type="submit" class="button">Guardar tarjeta</button>
+    </form>
+  </div>
+  
+  
+  
+  
+
+{% endblock %}
