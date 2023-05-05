@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 from django.shortcuts import render
@@ -17,6 +17,9 @@ def Perfil(request):
 
 def Viaje(request):
     return render(request, "paginaweb/viaje.html")
+
+def Tarjeta(request):
+    return render(request, "paginaweb/tarjeta.html")
 
 def Login(request):
     formulario_login=FormularioInicioSesion()
@@ -40,7 +43,6 @@ def Signup(request):
 
 
     return render(request, "paginaweb/signup.html", {"formSignup":formulario_signup})
-
 
 
 

@@ -56,14 +56,17 @@
   </head>
   <body>
     <div id="form-container">
-      <form id="map-form">
+      <form id="map-form" action="{% url 'Viaje' %}" method="get">
         <label for="origin-input">Origen:</label>
-        <input type="text" id="origin-input" name="origin" required><br>
+        <input type="text" id="origin-input" name="origin" value="{{ origin }}" required><br>
         <br><label for="destination-input">Destino:</label>
-        <input type="text" id="destination-input" name="destination" required><br>
+        <input type="text" id="destination-input" name="destination" value="{{ destination }}" required><br>
         <br><button type="submit">Buscar ruta</button>
       </form>
     </div>
+
+
+
     <div id="map"></div>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
     <script>

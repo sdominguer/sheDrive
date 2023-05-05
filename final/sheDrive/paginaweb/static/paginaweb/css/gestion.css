@@ -339,3 +339,12 @@ ul.errorlist{
   text-align: center;
 }
 
+.contenedor{
+  text-align: left;
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  margin:20px auto;
+  border-radius: 5px;
+  padding: 1px 0px;
+}
+
