@@ -6,8 +6,8 @@ class FormularioCreacion(forms.Form):
     contraseña=forms.CharField(label= "Contraseña", required=True, widget=forms.PasswordInput())
     email=forms.EmailField(label="Correo", required=True)
     telefono=forms.CharField(label="Teléfono", required=True)
-
 class FormularioInicioSesion(forms.Form):
-    email=forms.EmailField(label="Correo", required=True)
-    password=forms.CharField(label="Contraseña", required=True)
+    email = forms.EmailField(label="Email")
+    contraseña = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+
 
