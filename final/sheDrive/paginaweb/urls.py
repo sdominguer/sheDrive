@@ -7,9 +7,9 @@ urlpatterns = [
     path("signup/",views.Signup, name="Signup"),
     path("login/",views.Login, name="Login"),
     path("viaje/",views.Viaje, name="Viaje"),
-    path("perfil.html", views.Perfil, name="Perfil"),
+    path("perfil/", views.Perfil, name="Perfil"),
     path('tarjeta/', views.Tarjeta, name='Tarjeta'),
     path('inicioViaje/', views.InicioViaje, name='InicioViaje'),
-
+    path('viajesAgendados/', views.ViajesAgendados, name='ViajesAgendados'),
 
 ]

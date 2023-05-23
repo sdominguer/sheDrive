@@ -38,6 +38,8 @@ def Tarjeta(request):
 def InicioViaje(request):
     return render(request, "paginaweb/inicioViaje.html")
 
+def ViajesAgendados(request):
+    return render(request, "paginaweb/viajesAgendados.html")
 
 from django.contrib import messages
 from django.shortcuts import render, redirect

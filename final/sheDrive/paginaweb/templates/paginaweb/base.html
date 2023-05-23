@@ -1,5 +1,7 @@
 <html>
 
+{% load static %}
+
 <head>
   <style>
       .button {
@@ -60,8 +62,8 @@
 
  <!-- Navbar --> <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
-      <a href="perfil.html" class="person-button">
-        <img src='static/paginaweb/img/usuario.png' class="person-icon">
+      <a href="{% url 'Perfil' %}" class="person-button">
+        <img src="{% static 'paginaweb/img/usuario.png' %}" class="person-icon">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -77,7 +79,7 @@
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Login' %}">Login</a>
           </li>
-          <li><button onclick="mostrarAlerta()" class="button"><strong>PANIC BUTTON</strong></button></li>          
+          <button onclick="mostrarAlerta()" class="button"><strong>PANIC BUTTON</strong></button>         
         </ul>
       </div>
     </div>
@@ -85,11 +87,27 @@
 
 <br>
     
+
 <script>
   function mostrarAlerta() {
-    alert("Tú ubicación ha sido enviada a tu contacto de seguridad.");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      alert('Tu navegador no admite la geolocalización.');
+    }
   }
-  </script>
+
+  function success(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var location = 'Latitud: ' + latitude + ', Longitud: ' + longitude;
+    alert('Tu ubicación en tiempo real ha sido enviada\n' + location);
+  }
+
+  function error() {
+    alert('No se pudo obtener la ubicación.');
+  }
+</script>
 
 
       </div>

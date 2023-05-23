@@ -1,5 +1,6 @@
 {% extends "paginaweb/base.html" %}
 
+{% load static %}
 
 {% block content %}
 <style>
@@ -80,21 +81,59 @@ label {
 
       
       <div class="col">
-        <div class="card" style="min-width: 25rem; min-height: 26rem;" >
+        <div class="card" style="min-width: 25rem; min-height: 26rem;">
           <div class="card-body">
             <label style="font-size: 20px;">Programar tu viaje</label>
-            <form>
-              <label for="fname">Desde:</label><br>
-              <input type="text"><br>
-              <label for="lname">Hasta:</label><br>
-              <input type="text"><br>
-              <label for="lname">Fecha y hora:</label><br>
-              <input type="datetime-local">
+            <form onsubmit="agendarViaje(event)">
+              <label for="from">Desde:</label><br>
+              <input type="text" id="from"><br>
+              <label for="to">Hasta:</label><br>
+              <input type="text" id="to"><br>
+              <label for="datetime">Fecha y hora:</label><br>
+              <input type="datetime-local" id="datetime">
               <br>
-              <button type="submit">Agendar</button>
+              <button type="submit" id="agendarBtn">Agendar</button>
             </form>
           </div>
         </div>
+      </div>
+      
+      <script>
+        function agendarViaje(event) {
+          event.preventDefault(); // Evita que el formulario se envíe
+      
+          // Obtener los valores de los campos de entrada
+          var from = document.getElementById('from').value;
+          var to = document.getElementById('to').value;
+          var datetime = document.getElementById('datetime').value;
+      
+          // Crear un objeto con los datos del viaje
+          var viaje = {
+            desde: from,
+            hasta: to,
+            fechaHora: datetime
+          };
+      
+          // Guardar el objeto de viaje en localStorage
+          var viajesAgendados = localStorage.getItem('viajesAgendados');
+          if (viajesAgendados) {
+            viajesAgendados = JSON.parse(viajesAgendados);
+            viajesAgendados.push(viaje);
+          } else {
+            viajesAgendados = [viaje];
+          }
+          localStorage.setItem('viajesAgendados', JSON.stringify(viajesAgendados));
+      
+          // Mostrar mensaje de éxito en pantalla
+          var mensaje = "Su viaje ha sido agendado exitosamente.";
+          alert(mensaje);
+      
+          // Redireccionar a la página de perfil de usuario
+          window.location.href = "/viajesAgendados";
+        }
+      </script>
+      
+      
       
       </div> <br>
 

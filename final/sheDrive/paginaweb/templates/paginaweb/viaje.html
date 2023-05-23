@@ -1,27 +1,53 @@
 {% extends "paginaweb/base.html" %}
 
 {% block content %}
-
-
-
-
-
 <div class="contenedorFormulario" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
   <br>
   <h2><strong>Inicia un nuevo viaje</strong></h2>
-    <div>
-      <br>
-        <label for="metodoPago">Seleccione su método de pago:</label>
-        <select id="metodoPago" name="metodoPago">
-            <option value="efectivo">Efectivo</option>
-            <option value="tarjeta">Tarjeta</option>
-        </select>
-    </div>
-    <p>Señale su origen y destino en el mapa</p>
-    <a href="/inicioViaje" class="button">Solicitar vehículo</a>
-    <div id="map" style="width: 90%; height: 70%; margin-top: 20px;"></div>
+  <div>
+    <br>
+    <label for="metodoPago">Seleccione su método de pago:</label>
+    <select id="metodoPago" name="metodoPago">
+      <option value="efectivo">Efectivo</option>
+      <option value="tarjeta">Tarjeta</option>
+    </select>
+  </div>
+
+
+  <div>
+    <br>
+    <label for="destino">Destinos Guardados:</label>
+    <select id="destinoSelect" name="destinoSelect">
+      <option value="Centro Comercial Santafé">Centro Comercial Santafé</option>
+      <option value="Universidad EAFIT">Universidad EAFIT</option>
+      <option value="Saint Michel Apartamentos">Saint Michel Apartamentos</option>
+    </select>
+  </div>
+
+  <p>Señale su origen y destino en el mapa</p>
+  <a href="/inicioViaje" class="button">Solicitar vehículo</a>
+  <div id="map" style="width: 90%; height: 70%; margin-top: 20px;"></div>
 </div>
 
+<script>
+  // Obtener el elemento select de destino y cargar los destinos guardados
+  var destinoSelect = document.getElementById('destinoSelect');
+  cargarDestinosGuardados();
+
+  // Cargar los destinos guardados desde el local storage
+  function cargarDestinosGuardados() {
+    var destinos = localStorage.getItem('destinos');
+    if (destinos) {
+      destinos = JSON.parse(destinos);
+      for (var i = 0; i < destinos.length; i++) {
+        var option = document.createElement('option');
+        option.value = destinos[i];
+        option.textContent = destinos[i];
+        destinoSelect.appendChild(option);
+      }
+    }
+  }
+  </script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js'></script>

@@ -1,0 +1,36 @@
+{% extends "paginaweb/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+  <div class="contenedorFormulario">
+    <div id="viajesAgendados"></div>
+  </div>
+  <br>
+  <p><Strong>Viajes Agendados</Strong></p>
+  <br>
+  <script>
+    // Obtener los viajes agendados de localStorage
+    var viajesAgendados = localStorage.getItem('viajesAgendados');
+    if (viajesAgendados) {
+      viajesAgendados = JSON.parse(viajesAgendados);
+
+      // Mostrar los viajes agendados en la página
+      var container = document.getElementById('viajesAgendados');
+      var titulo = document.createElement('h2');
+      titulo.textContent = "Viajes Agendados";
+      container.appendChild(titulo);
+
+      viajesAgendados.forEach(function(viaje) {
+        var parrafo = document.createElement('p');
+        parrafo.textContent = "Desde: " + viaje.desde + " - Hasta: " + viaje.hasta + " - Fecha y hora: " + viaje.fechaHora;
+        container.appendChild(parrafo);
+      });
+    }
+  </script>
+</body>
+</html>
+
+{% endblock %}
