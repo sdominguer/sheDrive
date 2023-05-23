@@ -1,0 +1,93 @@
+{% extends "paginaweb/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Aceptación de Viaje en Uber</title>
+  <style>
+    .button {
+      background-color: rgb(255, 200, 200);
+      border: none;
+      border-radius: 1px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 7px;
+    }
+
+    .driver-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+
+    #map {
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .star-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+      margin-top: 10px;
+    }
+
+    .rating-text {
+      margin-left: 5px;
+      margin-right: 10px; 
+    }
+    
+  </style>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css' type='text/css'/>  
+
+
+<body>
+  <div class="contenedorFormulario">
+    <div id='map'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWRybCIsImEiOiJjbGg4a3M0d3AwOWppM2VtaGJyNmF6bGN1In0.mqxx5BquCc8oeOqglch5hQ';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [8.922735, 44.413531],
+        zoom: 14
+        });
+    </script>
+
+<div>
+    <div class="driver-info">
+      <img class="driver-icon" src="{% static 'paginaweb/img/usuario.png' %}" alt="Icono del conductor">
+      <div class="driver-time">
+        <p>5 min ∘ 2,6km</p>
+      </div>
+      <div class="rating">
+        <p class="rating-text"><strong>Laura</strong></p>
+        <img class="star-icon" src="{% static 'paginaweb/img/estrella.png' %}" alt="Estrella">
+        <span class="rating-number">5</span>
+        <span class="rating-arrow">&gt;</span>
+      </div>
+    <p>IHX346 / Renault Logan - Gray</p>
+  </div>
+</div>
+
+</body>
+
+</html>
+
+{% endblock %}
+

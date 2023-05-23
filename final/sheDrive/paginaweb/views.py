@@ -15,12 +15,28 @@ def Home(request):
 def Perfil(request):
     return render(request, "paginaweb/perfil.html")
 
+from django.shortcuts import render
+
+from django.shortcuts import render
+
 def Viaje(request):
-    return render(request, "paginaweb/viaje.html")
+    origin = request.GET.get('origin')
+    destination = request.GET.get('destination')
+    
+    context = {
+        'origin': origin,
+        'destination': destination
+    }
+    
+    return render(request, 'paginaweb/viaje.html', context)
+
+
 
 def Tarjeta(request):
     return render(request, "paginaweb/tarjeta.html")
 
+def InicioViaje(request):
+    return render(request, "paginaweb/inicioViaje.html")
 
 
 from django.contrib import messages
@@ -57,13 +73,6 @@ def Login(request):
     return render(request, "paginaweb/login.html", {"form": form})
 
 
-
-
-    
-
-
-
-    
 def Signup(request):
     formulario_signup=FormularioCreacion()
     if request.method=="POST":

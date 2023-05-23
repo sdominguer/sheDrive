@@ -9,5 +9,7 @@ urlpatterns = [
     path("viaje/",views.Viaje, name="Viaje"),
     path("perfil.html", views.Perfil, name="Perfil"),
     path('tarjeta/', views.Tarjeta, name='Tarjeta'),
+    path('inicioViaje/', views.InicioViaje, name='InicioViaje'),
+
 
 ]

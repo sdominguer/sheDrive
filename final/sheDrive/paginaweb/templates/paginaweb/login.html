@@ -20,7 +20,11 @@
 
 
 </style>
+
 <div class="contenedorFormulario">
+  <br>
+  <h2>Iniciar sesión</h2>
+  <br>
   <form method="POST" action="{% url 'Login' %}">
     {% csrf_token %}
   
@@ -33,19 +37,11 @@
       <label for="contraseña">Contraseña:</label>
       <input type="password" id="contraseña" name="contraseña" required>
     </div>
-  
+  <br>
     <!-- Botón de envío -->
     <button type="submit" class="button">Iniciar sesión</button>
   </form>
-  {% if messages %}
-  <ul class="errorlist">
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-  
-  
+
 </div>
 
   {% endblock %}

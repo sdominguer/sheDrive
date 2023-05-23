@@ -20,23 +20,43 @@
 
 
 {% block content %}
+<div class="contenedorFormulario">
+  <br>
+  <h2>Registrar Tarjeta</h2>
+  <br>
+  <form method="POST" action="{% url 'Tarjeta' %}">
+    {% csrf_token %}
 
-<div class="contenedorFormulario" style="text-align: center; font-family: Arial, sans-serif;">
-    <h2 style="margin-top: 30px;"><strong>Información tarjeta</strong></h2>
-    <br>
-    <form style="text-align: justify; text-align-last: justify; margin: 0 20% 20px 20%; display: flex; flex-direction: column; align-items: center;">
-      <label for="numero-tarjeta">Número de tarjeta:</label>
-      <input type="text" id="numero-tarjeta" name="numero-tarjeta" required><br><br>
-  
-      <label for="fecha-vencimiento">Fecha de vencimiento:</label>
-      <input type="text" id="fecha-vencimiento" name="fecha-vencimiento" required><br><br>
-  
-      <label for="clave">Clave:</label>
-      <input type="password" id="clave" name="clave" required><br><br>
-  
-      <button type="submit" class="button">Guardar tarjeta</button>
-    </form>
+      <!-- Selección de tipo de tarjeta -->
+  <div class="form-group">
+    <label for="tipo_tarjeta">Tipo de tarjeta:</label>
+    <select id="tipo_tarjeta" name="tipo_tarjeta">
+      <option value="credito">Tarjeta de crédito</option>
+      <option value="debito">Tarjeta de débito</option>
+    </select>
   </div>
+    <!-- Campos del formulario -->
+    <div>
+      <label for="nombre">Nombre del titular:</label>
+      <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <div>
+      <label for="numero">Número de tarjeta:</label>
+      <input type="text" id="numero" name="numero" required>
+    </div>
+    <div>
+      <label for="vencimiento">Fecha de vencimiento:</label>
+      <input type="text" id="vencimiento" name="vencimiento" placeholder="MM/AA" required>
+    </div>
+    <div>
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" required>
+    </div>
+<br>
+    <!-- Botón de envío -->
+    <button type="submit" class="button">Registrar tarjeta</button>
+  </form>
+</div>
   
   
   
